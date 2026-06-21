@@ -1,3 +1,11 @@
+function closeAllFaqItems() {
+  document.querySelectorAll('.faq-item.open').forEach(item => {
+    item.classList.remove('open');
+  });
+}
+
+window.addEventListener('pageshow', closeAllFaqItems);
+
 document.addEventListener('DOMContentLoaded', () => {
   const menu = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
@@ -21,9 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.querySelectorAll('.faq-item.open').forEach(item => {
-  item.classList.remove('open');
-});
+  closeAllFaqItems();
   
   document.querySelectorAll('.faq-question').forEach(q => {
     q.addEventListener('click', () => {
