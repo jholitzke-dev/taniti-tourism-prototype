@@ -15,8 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   document.querySelectorAll('.faq-question').forEach(q => {
-    q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
+  q.addEventListener('click', () => {
+    const currentItem = q.closest('.faq-item');
+
+    document.querySelectorAll('.faq-item').forEach(item => {
+      if (item !== currentItem) {
+        item.classList.remove('open');
+      }
+    });
+
+    currentItem.classList.toggle('open');
   });
+});
   const modal = document.querySelector('.modal');
   document.querySelectorAll('[data-modal]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); modal?.classList.add('show'); }));
   document.querySelectorAll('.modal-close,.modal').forEach(el => el.addEventListener('click', e => { if(e.target === el) modal?.classList.remove('show'); }));
