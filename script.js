@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-filter]').forEach(btn => {
     btn.addEventListener('click', () => {
       const group = btn.closest('.filters');
-
       group.querySelectorAll('.chip').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     q.addEventListener('click', () => {
       const currentItem = q.closest('.faq-item');
 
-      document.querySelectorAll('.faq-item').forEach(item => {
+      document.querySelectorAll('.faq-item.open').forEach(item => {
         if (item !== currentItem) {
           item.classList.remove('open');
         }
