@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  document.querySelectorAll('.faq-item.open').forEach(item => {
+  item.classList.remove('open');
+});
+  
   document.querySelectorAll('.faq-question').forEach(q => {
     q.addEventListener('click', () => {
       const currentItem = q.closest('.faq-item');
